@@ -1,0 +1,81 @@
+%!TEX root = ../main.tex
+\begin{definition}[The $\cmts$ relation]
+Let $I,J$ two small categories; we define a relation $\cmts$ on $\Cat$ saying that $I\cmts J$ if and only $I$-colimits commute with $J$-limits over $\Set$, \ie for any functor $F : I\times J \to \Set$ there is a canonical isomorphism
+\[\textstyle
+\colim_I \lim_J F \cong \lim_J \colim_I F
+\]
+\end{definition}
+\begin{remark}[Elementary observations on $\cmts$]
+As it is always the case, the relation $\cmts$ on $\Cat$ generates a Galois connection on $2^{\Cat}$ given by intersection:
+\[
+\sfX^{\cmts} := \{J\in\Cat\mid I\cmts J\; \forall I\in\sfX\}
+\]
+and dually, we can define ${}^{\cmts}\sfY$. This is a (contravariant) Galois connection in the sense that ${}^{\cmts}(\firstblank)\dashv (\firstblank)^{\cmts}$: the usual properties of an adjunction induce a closure and an interior operator (given by unit and counit) in such a way that $\sfX\subseteq ({}^{\cmts}\sfX)^{\cmts}$ and $\sfX\subseteq {}^{\cmts}(\sfX^{\cmts})$ for every $\sfX\subseteq \Cat$; 
+\end{remark}
+\begin{definition}[doctrine system]
+We define a \emph{doctrine system} as a pair $(\sfX,\sfY)$ such that $\sfX={}^{\cmts}\sfY$ and $\sfY = \sfX^{\cmts}$. Obviously, a doctrine system is uniquely determined by the specification of its left or right class.
+\end{definition}
+\begin{example}
+We can define the following doctrine systems on $\Cat$:
+\begin{enumerate}
+	\item $(\textsf{Set}_{<\alpha},\textsf{Conn}_{<\alpha})$;
+	\item $(\alpha\textsf{-Filt},\textsf{Cat}_{<\alpha})$;
+	\item $(\alpha\textsf{-Sift},\textsf{Set}_{<\alpha})$;
+	\item \dots
+\end{enumerate}
+\end{example}
+Motivation for the notion of sound doctrine
+\begin{definition}[Sound doctrine]
+
+\end{definition}
+\begin{theorem}[Structure theorem for doctrine systems]
+Let $\clD$ be a sound doctrine. Then the following conditions are equivalent for a functor $F : A\to \Set$.
+\begin{enumerate}
+	\item $\Lan_{\yon_A} F$ commutes with $\clD$-limits of representables;
+	\item $\Lan_{\yon_A} F$ commutes with all $\clD$-limits;
+	\item $F\cong \colim_{J(F)}\yon_A(a_j)$ for a suitable diagram $J \to A$, with $J\in~\clD^{\cmts}$
+	\item The category $\Elts(F)$ belongs to $\clD^{\cmts}$;
+	\item $F$ commutes with all $\clD$-limits.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Some implications are obvious: since $\Lan_{\yon_A} F\circ\yon_A\cong F$, it is evident that $1\iff 5$. It is also evident that $2\Rightarrow 1$, and that $4\Rightarrow 3$ in wiew of the fact that $F\cong \colim_{\Elts(F)}\yon_A$ (as a consequence of \ref{}, see also Remark \ref{}). It is then enough to show two implications to close the circle $2\Rightarrow 1 \Rightarrow 5 \overset{(ii)}\Rightarrow 4 \Rightarrow 3\overset{(i)}\Rightarrow 2$:
+\begin{enumerate}[label=$\roman*$)]
+	\item It is an easy computation in coend calculus: let us assume that $P\cong \lim_{j\in J}P_j$ for a diagram of presheaves $P_* : J\to [A,\Set]$, for $J\in \clD^{\cmts}$; we can build a canonical isomorphism $\Lan_{\yon_A} F(P)\cong \lim_{i\in J}\Lan_{\yon_A} F(P_j)$ as follows:
+	\marginpar{
+	\begin{kodi}
+	\obj{A & \Set \\ |(psh)| [A^\opp,\Set] & \\}; 
+	\mor A F:-> Set;
+	\mor[swap] A {\yon_A}:-> psh {\Lan_{\yon}F}:-> Set;
+	% \mor yon 2-> Set;
+	\end{kodi}}
+	\begin{align*}
+		\Lan_{\yon_A} F(P) & \cong \int^a Pa\times Fa\\
+		&\cong \int^a \colim_{i\in I} Pa\times \hom(x_i,a)\\
+		&\cong \colim_{i\in I} \int^a Pa\times \hom(x_i,a)\\
+		&\cong \colim_{i\in I} P(x_i)\\
+		&\cong \colim_{i\in I} \lim_{j\in J} P_j(x_i)\\
+		&\cong \lim_{j\in J} \colim_{i\in I} P_j(x_i)\\
+	\end{align*}
+	which is now equal to $\lim_{i\in J}\Lan_{\yon_A} F(P_j)$
+	\item By \ref{}, we have the tuatological isomorphism $Fa\cong \yon_A(a)\otimes F$; in view of \ref{} we can build the following chain of isomorphisms starting with 
+	\begin{align*}
+	\textstyle\yon_A(a)\otimes F(\lim_I x_i) &\textstyle\cong \colim_{\Elts(F)}\yon_A(\lim_I x_i)\\
+	&\textstyle\cong \colim_{\Elts(F)} \lim_I  \yon_A(x_i)
+	\end{align*}
+	Assuming $(iii)$ this is turn is equivalent to $\colim_{\Elts(F)} \lim  \yon_A(x_i)$, but this is nothing more than the definition that $\Elts(F)$ belongs to $\clD^{\cmts}$.\qedhere
+\end{enumerate}
+\end{proof}
+\begin{theorem}[Structure theorem for doctrine systems]
+Let $\clD$ be a sound doctrine. Then the following conditions are equivalent for a functor $F : A\to \Set$.
+\begin{enumerate}
+	\item $\Lan_{\yon_A} F$ commutes with $\clD$-colimits of representables;
+	\item $\Lan_{\yon_A} F$ commutes with all $\clD$-colimits;
+	\item $F\cong \lim_{J(F)}\yon_A(a_j)$ for a suitable diagram $J(F) \to A$, with $J(F)\in~\prescript{\cmts}{}{\clD}$
+	\item The category $\Elts(F)$ belongs to $\prescript{\cmts}{}{\clD}$;
+	\item $F$ commutes with all $\clD$-colimits.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The proof essentially dualizes the above argument.
+\end{proof}

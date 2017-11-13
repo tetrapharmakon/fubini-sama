@@ -3,10 +3,12 @@
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\psh}{PSh}
 
-\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator*{\colim}{colim}
 
-\DeclareMathOperator{\holim}{holim}
-\DeclareMathOperator{\hocolim}{hocolim}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+
+\DeclareMathOperator{\Elts}{Elts}
 
 \def\Fun{\textsf{Fun}}
 \def\Nat{\textsf{Nat}}
@@ -14,7 +16,7 @@
 \def\LNat{\textsf{LNat}}
 
 \usepackage{CJKutf8}
-	\newcommand{\yon}{\text{\begin{CJK}{UTF8}{min}よ\end{CJK}}\!}
+	\newcommand{\yon}{{\!\text{\begin{CJK}{UTF8}{min}よ\end{CJK}}\!}}
 
 \DeclareMathAlphabet\EuScript{U}{eus}{m}{n}
 \SetMathAlphabet\EuScript{bold}{U}{eus}{b}{n}
@@ -90,3 +92,5 @@
 	\def\Mod{\cate{Mod}}
 	\def\Ch{\cate{Ch}}
 	\def\ch{\Ch}
+
+\def\opp{\text{op}}

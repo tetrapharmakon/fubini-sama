@@ -2,6 +2,15 @@
 
 \input{pream/prambolo}
 
+% \usepackage{ccicons,cclicenses}
+% \def\CCMode{\mathchoice{D}{T}{S}{SS}}
+% \def\CCSymbol{\mathchoice
+% {\kern-.2em\cc\kern-.4em}
+% {\kern-.2em\cc\kern-.4em}
+% {\kern-.2em\scalebox{.65}{\cc}\kern-.25em}
+% {\kern-.2em\scalebox{.5}{\cc}}\kern-.25em}
+% \let\cmts\CCSymbol
+
 \newcommand{\cmts}{\mathrel{\text{\copyright}}}
 
 \author{Ivan di Liberti \and Fosco Loregian}
@@ -11,38 +20,22 @@
 \begin{abstract}
 
 \end{abstract}
-\begin{itemize}
-	\item Intro (a few technical lemma)
-	\item Vecchio \cite{adamek2002classification}
-	\item coVecchio
-	\item General problem
-	\item faithfullezza, conservativity
-\end{itemize}
-\begin{definition}[The $\cmts$ relation]
-Let $I,J$ two small categories; we define a relation $\cmts$ on $\Cat$ saying that $I\cmts J$ if and only $I$-colimits commute with $J$-limits over $\Set$, \ie for any functor $F : I\times J \to \Set$ there is a canonical isomorphism
-\[\textstyle
-\colim_I \lim_J F \cong \lim_J \colim_I F
-\]
-\end{definition}
-\begin{remark}[Elementary observations on $\cmts$]
-As it is always the case, the relation $\cmts$ on $\Cat$ generates a Galois connection on $2^{\Cat}$ given by intersection:
-\[
-\sfX^{\cmts} := \{J\in\Cat\mid I\cmts J\; \forall I\in\sfX\}
-\]
-and dually, we can define ${}^{\cmts}\sfY$. This is a (contravariant) Galois connection in the sense that ${}^{\cmts}(\firstblank)\dashv (\firstblank)^{\cmts}$: the usual properties of an adjunction induce a closure and an interior operator (given by unit and counit) in such a way that $\sfX\subseteq ({}^{\cmts}\sfX)^{\cmts}$ and $\sfX\subseteq {}^{\cmts}(\sfX^{\cmts})$ for every $\sfX\subseteq \Cat$; 
-\end{remark}
-\begin{definition}[doctrine system]
-We define a \emph{doctrine system} as a pair $(\sfX,\sfY)$ such that $\sfX={}^{\cmts}\sfY$ and $\sfY = \sfX^{\cmts}$. Obviously, a doctrine system is uniquely determined by the specification of its left or right class.
-\end{definition}
-\begin{example}
-We can define the following doctrine systems on $\Cat$:
-\begin{enumerate}
-	\item $(\textsf{Set}_{<\alpha},\textsf{Conn}_{<\alpha})$;
-	\item $(\alpha\textsf{-Filt},\textsf{Cat}_{<\alpha})$;
-	\item $(\alpha\textsf{-Sift},\textsf{Set}_{<\alpha})$;
-	\item \dots
-\end{enumerate}
-\end{example}
+% \begin{itemize}
+% 	\item Intro (a few technical lemma)
+% 	\item Vecchio \cite{adamek2002classification}
+% 	\item coVecchio
+% 	\item General problem
+% 	\item faithfullezza, conservativity
+% \end{itemize}
+\section{Introduction}
+	\input{sections/00-prelims}
+\section{The old theorems}
+	\input{sections/01-old-n-coold}
+\section{Faithfulness}
+\section{Conservativity}
+%
+%
+%
 \bibliography{allofthem}{}
 \bibliographystyle{amsalpha}
 \hrulefill 
