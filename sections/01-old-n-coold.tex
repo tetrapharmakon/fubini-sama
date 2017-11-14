@@ -18,9 +18,9 @@ We define a \emph{doctrine system} as a pair $(\sfX,\sfY)$ such that $\sfX={}^{\
 \begin{example}
 We can define the following doctrine systems on $\Cat$:
 \begin{enumerate}
-	\item $(\textsf{Set}_{<\alpha},\textsf{Conn}_{<\alpha})$;
-	\item $(\alpha\textsf{-Filt},\textsf{Cat}_{<\alpha})$;
-	\item $(\alpha\textsf{-Sift},\textsf{Set}_{<\alpha})$;
+	\item $(\textsf{Set}_{<\alpha},\textsf{Conn}_{<\alpha})$, where $\textsf{Set}_{<\alpha}$ contains all discrete categories of cardinality  less than $\alpha$, and $\textsf{Conn}_{<\alpha}$ contains all \emph{connected} categories (\ie categories $C$ such that $\pi_0(C)\cong \text{coeq}\big(C_1\rightrightarrows C_0\big)$ is a singleton).
+	\item $(\alpha\textsf{-Filt},\textsf{Cat}_{<\alpha})$, where $\alpha\textsf{-Filt}$ is the class of $\alpha$-filtered categories, \ie categories which are \emph{fibrant} with respect to the inclusions $A\to A^\lhd$ for all categories with less than $\alpha$ objects, and $\textsf{Cat}_{<\alpha}$ contains all categories with less than $\alpha$ objects.
+	\item $(\alpha\textsf{-Sift},\textsf{Set}_{<\alpha})$, where $\alpha\textsf{-Sift}$ is the category of $\alpha$-sifted categories, and $\textsf{Set}_{<\alpha}$ contains all the categories with less than $\alpha$ objects. 
 	\item \dots
 \end{enumerate}
 \end{example}

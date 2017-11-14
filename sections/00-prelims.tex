@@ -6,17 +6,17 @@ Let $C$ be a small category, $D$ any category, and $T : C^\opp\times C \to D$ a 
 \begin{itemize}
 	\item A \emph{wedge} for $T$ consists of a $C$-indexed family of $D$-arrows
 	\[
-	\{T(c,c)\to x\}_{c\in C}
+	\{\tau_c : y\to T(c,c)\}_{c\in C}
 	\]
 	(the object $x\in D$ is called the \emph{tip} of the wedge) such that for every $h : c\to c'$ in $C$ the square
-	\[vadspgapo\]
+	\[\xymatrix{y \ar[r]^{\tau_c}\ar[d]_{\tau_{c'}}& T(c,c) \ar[d]^{T(c,h)}\\T(c',c') \ar[r]_{T(h,c')}& T(c,c')}\]
 	commutes.
-	\item A \emph{wedge} for $T$ consists of a $C$-indexed family of $D$-arrows
+	\item A \emph{cowedge} for $T$ consists of a $C$-indexed family of $D$-arrows
 	\[
-	\{y\to T(c,c)\}_{c\in C}
+	\{\omega_c : T(c,c)\to x\}_{c\in C}
 	\]
 	(the object $y\in D$ is called the \emph{tail} of the wedge) such that for every $h : c\to c'$ in $C$ the square
-	\[vadspgapo\]
+	\[\xymatrix{T(c',c) \ar[r]^{T(h,c)}\ar[d]_{T(c',h)}& T(c,c)\ar[d]^{\omega_c}\\ T(c',c')\ar[r]_-{\omega_{c'}} & x}\]
 	commutes.
 \end{itemize}
 \end{definition}
@@ -48,14 +48,16 @@ The category $\elts{C }{W}$ defined in \refbf{eltsf} can be equivalently charact
 \item The category which results from the (strict) pullback 
 \[
 \xymatrix{
-  \elts{C }{W}\ar[r]\ar[d]\ar@{}[dr]|\lrcorner & \Sets_* \ar[d]^U \\
+  \elts{C }{W}\ar[r]\ar[d]\ar@{}[dr]|(.25)\lrcorner & \Sets_* \ar[d]^U \\
   C  \ar[r]_W & \Sets
 }
 \]
 where $U\colon \Sets_*\to\Sets$ is the forgetful functor which sends a pointed set to its underlying set;
 \item The comma category of the cospan $\{*\}\xto{\text{``pt''}} \Sets \xot{W} C $, where the functor $\text{``pt''} : \{*\}\to \Sets$ chooses the terminal object of $\Sets$;
-\item The opposite of the comma category $(\yon_{C }\downarrow \text{``$W$''})$, where $\text{``$W$''}\colon \{*\}\to [C , \Sets]$ is the \emph{name} of the functor $W$, \ie the unique functor choosing the presheaf $W\in [C , \Sets]$:
-\[vaouaouoi\]
+\item The opposite of the comma category $
+\faktor{\yon_C}{\text{``$W$''}}
+% (\yon_{C }\downarrow \text{``$W$''})
+$, where $\text{``$W$''}\colon \{*\}\to [C , \Sets]$ is the \emph{name} of the functor $W$, \ie the unique functor choosing the presheaf $W\in [C , \Sets]$.
 \end{enumerate}
 \end{remark}
 \subsection{Weighted co/limits}
