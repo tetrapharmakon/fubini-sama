@@ -1,48 +1,68 @@
 %!TEX root = ../main.tex
-The only scope of this preliminary section is to fix notation for the discussion that follows; we will build a minimal dictionary about useful techniques to give fast, clean arguments proving the theorems we are interested in. Instead than being sufficiently self-contained (in fact, we do no more than concentrate the content of \cite[§1,2]{cofriend}), we aim at brevity and clarity. The power of co/end calculus is tstified by our extremely agile alternative proof of \cite[???]{adamek2002classification}, exposed in \ref{}.
+The only scope of this preliminary section is to fix notation for the
+discussion that follows; we will build a minimal dictionary about useful
+techniques to give fast, clean arguments proving the theorems we are interested
+in. Instead than being sufficiently self-contained (in fact, we do no more than
+concentrate the content of \cite[§1,2]{cofriend}), we aim at brevity and
+clarity. The power of co/end calculus is tstified by our extremely agile
+alternative proof of \cite[???]{adamek2002classification}, exposed i~~\ref{}.
 \subsection{Coend calculus}
-\begin{definition}[Co/wedges]
+\begin{definition}[co/wedges]
 Let $C$ be a small category, $D$ any category, and $T : C^\opp\times C \to D$ a functor.
 \begin{itemize}
-	\item A \emph{wedge} for $T$ consists of a $C$-indexed family of $D$-arrows
-	\[
-	\{\tau_c : y\to T(c,c)\}_{c\in C}
-	\]
-	(the object $x\in D$ is called the \emph{tip} of the wedge) such that for every $h : c\to c'$ in $C$ the square
-	\[\xymatrix{y \ar[r]^{\tau_c}\ar[d]_{\tau_{c'}}& T(c,c) \ar[d]^{T(c,h)}\\T(c',c') \ar[r]_{T(h,c')}& T(c,c')}\]
-	commutes.
-	\item A \emph{cowedge} for $T$ consists of a $C$-indexed family of $D$-arrows
-	\[
-	\{\omega_c : T(c,c)\to x\}_{c\in C}
-	\]
-	(the object $y\in D$ is called the \emph{tail} of the wedge) such that for every $h : c\to c'$ in $C$ the square
-	\[\xymatrix{T(c',c) \ar[r]^{T(h,c)}\ar[d]_{T(c',h)}& T(c,c)\ar[d]^{\omega_c}\\ T(c',c')\ar[r]_-{\omega_{c'}} & x}\]
-	commutes.
+\item A \emph{wedge} for $T$ consists of a $C$-indexed family of $D$-arrows
+\[
+\{\tau_c : y\to T(c,c)\}_{c\in C}
+\]
+(the object $x\in D$ is called the \emph{tip} of the wedge) such that for every $h : c\to c'$ in $C$ the square
+\[\xymatrix{y \ar[r]^{\tau_c}\ar[d]_{\tau_{c'}}& T(c,c) \ar[d]^{T(c,h)}\\T(c',c') \ar[r]_{T(h,c')}& T(c,c')}\]
+commutes.
+\item A \emph{cowedge} for $T$ consists of a $C$-indexed family of $D$-arrows
+\[
+\{\omega_c : T(c,c)\to x\}_{c\in C}
+\]
+(the object $y\in D$ is called the \emph{tail} of the wedge) such that for every $h : c\to c'$ in $C$ the square
+\[\xymatrix{T(c',c) \ar[r]^{T(h,c)}\ar[d]_{T(c',h)}& T(c,c)\ar[d]^{\omega_c}\\ T(c',c')\ar[r]_-{\omega_{c'}} & x}\]
+commutes.
 \end{itemize}
 \end{definition}
-\begin{definition}[Co/end of a functor]
+\begin{definition}[co/end of a functor]
 It is straightforward now to define the notion of \emph{morphism} between wedges for the same functor $T$ (it is simply a morphism between the tips that makes the obvious triangle commute). This, and the dual definition of a morphism of cowedges, define
 \begin{itemize}
-	\item the \emph{end} of $T :C^\opp\times C \to D$ as the terminal object (whenever it exists) of $Wd(T)$; when it exists, this object of $D$ is unique up to unique isomorphism, and it is denoted as $\int_c T(c,c)$.
-	\item the \emph{coend} of $T :C^\opp\times C \to D$ as the initial object (whenever it exists) of $Cwd(T)$; when it exists, this object of $D$ is unique up to unique isomorphism, and it is denoted as $\int^c T(c,c)$ (see \cite{yoneda}, that nevertheless employs the notation $\int_c^* T(c,c)$).
+\item the \emph{end} of $T :C^\opp\times C \to D$ as the terminal object (whenever it exists) of $Wd(T)$; when it exists, this object of $D$ is unique up to unique isomorphism, and it is denoted as $\int_c T(c,c)$.
+\item the \emph{coend} of $T :C^\opp\times C \to D$ as the initial object (whenever it exists) of $Cwd(T)$; when it exists, this object of $D$ is unique up to unique isomorphism, and it is denoted as $\int^c T(c,c)$ (see \cite{yoneda}, that nevertheless employs the notation $\int_c^* T(c,c)$).
 \end{itemize}
 These uniqueness properties entail that $\int_c T(c,c)$ and $\int^T(c,c)$ are natural in $T$.
 \end{definition}
 \begin{remark}[co/ends are co/limits]
-It is possible to show that \cite{cofriend}
+It is possible to show that \cite{cofriend} the end of a functor $T : C^\opp\times C \to D$ is the limit of a ``reshaped'' diagram obtained from $C^\opp\times C$, \ie the limit of a composition $Tw(C)\to C^\opp\times C \xto{T}D$; the category $Tw(C)$ is called the \emph{twisted arrow category} of $C$ and it is described in \cite[???]{}.
+
+Dualizing this statement is not trivial because of nested op's in the relevant diagram:  the coend of a functor $T : C^\opp\times C \to D$ is the limit of a composition $Tw(C^\opp)^\opp\to C\times C^\opp\cong C^\opp\times C \xto{T}D$. In view of the fact that co/limits can be obtained as suitable co/equalizers of parallel maps between co/products, we can find more concise presentations for these co/limits: more precisely, we have that
 \begin{itemize}
-	\item $\int_c T(c,c) \cong \lim\Big(\prod_{c\in C}T(c,c) \rightrightarrows \prod_{c\to c'}T(c,c')\Big)$
-	\item $\int^c T(c,c) \cong \colim\Big(\coprod_{c\to c'}T(c',c) \rightrightarrows \coprod_{c\in C}T(c,c)\Big)$
+\item $\int_c T(c,c) \cong \lim \Big(\prod_{c\in C}T(c,c) \rightrightarrows \prod_{c\to c'}T(c,c')\Big)$
+\item $\int^c T(c,c) \cong \colim\Big(\coprod_{c\to c'}T(c',c) \rightrightarrows \coprod_{c\in C}T(c,c)\Big)$
 \end{itemize}
-This has useful and ubiquitous consequences: the $\int_c$ functor commutes with limits, and co/ends exists in $D$ if and only if certain co/limits exist in $D$.
+This characterization has useful and ubiquitous consequences: the $\int_c$ functor commutes with limits, and co/ends exists in $D$ if and only if certain co/limits exist in $D$. See \cite[???]{cofriend}
 \end{remark}
-\begin{theorem}[A few isomorphisms of the calculus]\label{a-few-isos}
-Yoneda ninja and Kan reduction
+\begin{theorem}[a few isomorphisms of the calculus]\label{a-few-isos}
+We collect here a number of isomorphisms that we need along the discussion; the proof can be found in the quoted references
+\begin{enumerate}[label=$\roman*$), ref=\roman*]
+	\item \label{cofri.ninja}\cite[]{cofriend} the \emph{ninja Yoneda lemma} states that given $F : A\to \Set$ and $G : A^\opp\to \Set$ we have isomorphisms
+	\begin{align*}
+	F \cong \int^x \hom(x,-)\times Fx &\qquad F \cong \int_x Fx^{\hom(-,x)}\\
+	G \cong \int^x \hom(-,x)\times Gx &\qquad G \cong \int_x Gx^{\hom(x,-)}
+	\end{align*}
+	(note that the left column is essentially the Yoneda lemma, in view of \cite[???]{McL}).
+	\item \label{cofri.kan}\cite[]{cofriend} the \emph{Kan formula} to compute a (left or right) Kan extension states that we have isomorphisms
+	\[ \Lan_GF \cong \int^x \hom(Gx,-)\times Fx \qquad  \Ran_GF \cong \int_x Fx^{\hom(-,Gx)} \]
+	\item \label{cofri.yan} by the Yoneda lemma, this reduces to the following formula for the \emph{Yoneda extension} of a functor $F : A \to B$ ($B$ any cocomplete category):
+	\[  \]
+\end{enumerate}
 \end{theorem}
-\begin{definition}[Category of elements]
+\begin{definition}[category of elements]
 Let $W\colon C\to \Set$ be a functor; the \emph{category of elements} $\elts{C}{W}$ of $W$ is the category having objects the pairs $(c\in C, u\in Wc)$, and morphisms $(c,u)\to (c',v)$ those $f\in C(c,c')$ such that $W(f)(u)=v$.
 \end{definition}
-\begin{remark}[Alternative characterizations of $\Elts(F)$]
+\begin{remark}[alternative characterizations of $\Elts(F)$]
 The category $\elts{C }{W}$ defined in \refbf{eltsf} can be equivalently characterized as each of the following:
 \begin{enumerate}[label=$\roman*$)]
 \item The category which results from the (strict) pullback 
@@ -54,10 +74,7 @@ The category $\elts{C }{W}$ defined in \refbf{eltsf} can be equivalently charact
 \]
 where $U\colon \Sets_*\to\Sets$ is the forgetful functor which sends a pointed set to its underlying set;
 \item The comma category of the cospan $\{*\}\xto{\text{``pt''}} \Sets \xot{W} C $, where the functor $\text{``pt''} : \{*\}\to \Sets$ chooses the terminal object of $\Sets$;
-\item The opposite of the comma category $
-\faktor{\yon_C}{\text{``$W$''}}
-% (\yon_{C }\downarrow \text{``$W$''})
-$, where $\text{``$W$''}\colon \{*\}\to [C , \Sets]$ is the \emph{name} of the functor $W$, \ie the unique functor choosing the presheaf $W\in [C , \Sets]$.
+\item The opposite of the comma category $\faktor{\yon_C}{\text{``$W$''}}$, where $\text{``$W$''}\colon \{*\}\to [C , \Sets]$ is the \emph{name} of the functor $W$, \ie the unique functor choosing the presheaf $W\in [C , \Sets]$.
 \end{enumerate}
 \end{remark}
 \subsection{Weighted co/limits}
@@ -70,22 +87,32 @@ The latter object, that uniquely determines the object $\lim_J F$, can be rewrit
 \Nat(*, \hom(F,a))
 \]
 where now $\hom(F,a)$ is the functor $x\mapsto \hom(Fx,a)$ and $*$ is the terminal presheaf: then
-\[
+\[\textstyle
 \hom(\lim_J F,a)\cong \Nat(*, \hom(F,a)).
 \]
 A weighted colimit arises answering the following simple question: what happens if we replace the terminal presheaf $*$ with a more general $W\colon X^\opp\to \Sets$, and look for a representative of the functor $a\mapsto \Nat(W, \hom(F,a)$? 
-
-% If we were able to solve this universal problem, we would obtain a natural isomorphism
-% \[
-% \hom(\lim_J{}^W F,a)\cong \Nat(W, \hom(F,a)).
-% \]
-% for an object $\lim_J{}^W F$ that we call the colimit of $F$ weighted by $W$. A useful shorthand to denote the colimit of $F$ weighted by $W$, alternative to the ugly $\lim_J{}^W F$, is $W\cdot F$, in such a way that its universal property is written
-% \[
-% \hom(W\cdot F,a)\cong \Nat(W, \hom(F,a)).
-% \]
-\begin{definition}[Weighted co/limit]
-
+\begin{definition}[weighted co/limit]
+Let $F : A \to B$ a functor.
+\begin{enumerate}
+	\item if $W : A^\opp\to \Set$ is a presheaf, the \emph{colimit of $F$ weighted by $W$} is an object $W\otimes F\in B$ with the property that
+	\[B(W\otimes F,b)\cong \Nat(W, \hom(F,b))\]
+	\item if $W : A \to \Set$ is a presheaf, the \emph{limit of $F$ weighted by $W$} is an object $\{W, F\}\in B$ with the property that
+	\[B(b,\{W,F\})\cong \Nat(W, \hom(b,F))\]
+\end{enumerate}
+Of course, when $W=*$ is constant at the terminal object of $\Set$, $*\otimes F\cong \colim_A F$ and $\{*,F\}\cong \lim_A F$. We will employ this result without further mention.
 \end{definition}
-\begin{remark}[``All things are weighted co/limits'']\label{all-are}
+\begin{remark}[weighted co/limits are co/ends]
 
+\end{remark}
+\begin{remark}[sometimes weighted co/limits are co/limits]
+
+\end{remark}
+\begin{remark}[``All things are weighted co/limits'']\label{all-are}
+The observation that in $\Set$, all weighted co/limits are co/limits is a capital one; it allowed a generation of mathematicians to hide weighted co/limits under the rug in the belief that abstraction hinders simplification. We feel legitimated to break this noxious habit, showing how the majority of constructions we have seen until now are unified by the formalism of weighted co/limits.
+\begin{itemize}
+	\item The ninja Yoneda lemma is the tautological statement that every presheaf $F\in[A^\opp,\Set]$ coincides with the colimit of the Yoneda embedding weighted by $F$ itself, or in symbols that $Fa\cong \yon_A(a)\otimes F$ naturally in $a\in A$.
+	\item Kan extensions are weighted co/limits, with weight $\hom(G,1)$ for $\Lan_G$  and $\hom(1,G)$ for $\Ran_G$: note that formula \ref{} coincides with \ref{} above.
+	\item Co/ends are weighted co/limits, in the sense that $\int_c T(c,c)\cong \{\hom, T\}$, and dually $\int^c T(c,c)\cong \hom\otimes T$.
+	\item Categories of elements are weighted colimits, more precisely $\elts{C}{F}$ is the colimit of $F$ weighted by the functor $C \to \Cat$ sending $c\in C$ into $C_{c/}$.
+\end{itemize}
 \end{remark}
