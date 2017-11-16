@@ -41,7 +41,7 @@ Let $\clD$ be a sound doctrine. Then the following conditions are equivalent for
 \begin{proof}
 Some implications are obvious: since $\Lan_{\yon_A} F\circ\yon_A\cong F$, it is evident that $1\iff 5$. It is also evident that $2\Rightarrow 1$, and that $4\Rightarrow 3$ in wiew of the fact that $F\cong \colim_{\elts{A}{F}}\yon_A$ (as a consequence of \refbf{a-few-isos}, see also Remark \refbf{all-are}). It is then enough to show two implications to close the circle $2\Rightarrow 1 \Rightarrow 5 \overset{(ii)}\Rightarrow 4 \Rightarrow 3\overset{(i)}\Rightarrow 2$:
 \begin{enumerate}[label=$\roman*$)]
-	\item It is an easy computation in coend calculus: let us assume that $P\cong \lim_{j\in J}P_j$ for a diagram of presheaves $P_* : J\to [A,\Set]$, for $J\in \clD^{\cmts}$; we can build a canonical isomorphism $\Lan_{\yon_A} F(P)\cong \lim_{i\in J}\Lan_{\yon_A} F(P_j)$ as follows:
+	\item It is an easy computation in coend calculus: let us assume condition 3 in the sense that $Fa\cong \colim_{i\in I}  \hom(x_i,a)$ for a $\clD$-shaped diagram of objects $I\to A$, and let's assume that $P\cong \lim_{j\in J}P_j$ for a diagram of presheaves $P_* : J\to [A,\Set]$, for $J\in \clD^{\cmts}$; we can build a canonical isomorphism $\Lan_{\yon_A} F(P)\cong \lim_{i\in J}\Lan_{\yon_A} F(P_j)$ as follows:
 	\marginpar{
 	\begin{kodi}
 	\obj{A & \Set \\ |(psh)| [A^\opp,\Set] & \\}; 
@@ -50,20 +50,20 @@ Some implications are obvious: since $\Lan_{\yon_A} F\circ\yon_A\cong F$, it is 
 	% \mor yon 2-> Set;
 	\end{kodi}}
 	\begin{align*}
-		\Lan_{\yon_A} F(P) & \cong \int^a Pa\times Fa\\
+		\Lan_{\yon_A} F(P) & \cong \int^a Pa\times Fa \\
 		&\cong \int^a \colim_{i\in I} Pa\times \hom(x_i,a)\\
 		&\cong \colim_{i\in I} \int^a Pa\times \hom(x_i,a)\\
 		&\cong \colim_{i\in I} P(x_i)\\
 		&\cong \colim_{i\in I} \lim_{j\in J} P_j(x_i)\\
 		&\cong \lim_{j\in J} \colim_{i\in I} P_j(x_i)
 	\end{align*}
-	which is now equal to $\lim_{i\in J}\Lan_{\yon_A} F(P_j)$
+	which is now equal to $\lim_{i\in J}\Lan_{\yon_A} F(P_j)$, retracing the first steps backwards.
 	\item By \ref{}, we have the tuatological isomorphism $Fa\cong \yon_A(a)\otimes F$; in view of \ref{} we can build the following chain of isomorphisms starting with 
 	\begin{align*}
 	\textstyle\yon_A(a)\otimes F(\lim_I x_i) &\textstyle\cong \colim_{\elts{A}{F}}\yon_A(\lim_I x_i)\\
 	&\textstyle\cong \colim_{\elts{A}{F}} \lim_I  \yon_A(x_i)
 	\end{align*}
-	Assuming $(iii)$ this is turn is equivalent to $\colim_{\elts{A}{F}} \lim  \yon_A(x_i)$, but this is nothing more than the definition that $\elts{A}{F}$ belongs to $\clD^{\cmts}$.\qedhere
+	Assuming condition 5 this is turn is equivalent to $\colim_{\elts{A}{F}} \lim  \yon_A(x_i)$, but this is nothing more than the definition that $\elts{A}{F}$ belongs to $\clD^{\cmts}$.\qedhere
 \end{enumerate}
 \end{proof}
 \begin{theorem}[Structure theorem for doctrine systems]

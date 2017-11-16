@@ -56,7 +56,7 @@ We collect here a number of isomorphisms that we need along the discussion; the 
 	\item \label{cofri.kan}\cite[]{cofriend} the \emph{Kan formula} to compute a (left or right) Kan extension states that we have isomorphisms
 	\[ \Lan_GF \cong \int^x \hom(Gx,-)\times Fx \qquad  \Ran_GF \cong \int_x Fx^{\hom(-,Gx)} \]
 	\item \label{cofri.yan} by the Yoneda lemma, this reduces to the following formula for the \emph{Yoneda extension} of a functor $F : A \to B$ ($B$ any cocomplete category):
-	\[  \]
+	\[ \Lan_{\yon_A}F(P) \cong \int^x \hom(\yon_Ax,P)\times Fx \cong \int^x Px\times Fx \]
 \end{enumerate}
 \end{theorem}
 \begin{definition}[category of elements]
@@ -91,7 +91,7 @@ where now $\hom(F,a)$ is the functor $x\mapsto \hom(Fx,a)$ and $*$ is the termin
 \hom(\lim_J F,a)\cong \Nat(*, \hom(F,a)).
 \]
 A weighted colimit arises answering the following simple question: what happens if we replace the terminal presheaf $*$ with a more general $W\colon X^\opp\to \Sets$, and look for a representative of the functor $a\mapsto \Nat(W, \hom(F,a)$? 
-\begin{definition}[weighted co/limit]
+\begin{definition}[weighted co/limit]\label{def:wcolim}
 Let $F : A \to B$ a functor.
 \begin{enumerate}
 	\item if $W : A^\opp\to \Set$ is a presheaf, the \emph{colimit of $F$ weighted by $W$} is an object $W\otimes F\in B$ with the property that
@@ -99,10 +99,13 @@ Let $F : A \to B$ a functor.
 	\item if $W : A \to \Set$ is a presheaf, the \emph{limit of $F$ weighted by $W$} is an object $\{W, F\}\in B$ with the property that
 	\[B(b,\{W,F\})\cong \Nat(W, \hom(b,F))\]
 \end{enumerate}
-Of course, when $W=*$ is constant at the terminal object of $\Set$, $*\otimes F\cong \colim_A F$ and $\{*,F\}\cong \lim_A F$. We will employ this result without further mention.
 \end{definition}
-\begin{remark}[weighted co/limits are co/ends]
-
+\begin{remark}
+Of course, when $W=*$ is constant at the terminal object of $\Set$, $*\otimes F\cong \colim_A F$ and $\{*,F\}\cong \lim_A F$. We will employ this result without further mention.
+\end{remark}
+\begin{remark}[weighted co/limits are co/ends]\label{wlim-are-coends}
+Unraveling the isomorphism of \adef\ref{def:wcolim}, mindful of \cite[???]{McL}, we get that 
+\[W\otimes F \cong \int^a Wa\otimes Fa\qquad \{W,F\}\cong \int_a Fa^{Wa}.\]
 \end{remark}
 \begin{remark}[sometimes weighted co/limits are co/limits]
 
