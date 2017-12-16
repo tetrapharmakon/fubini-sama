@@ -43,12 +43,13 @@ Some implications are obvious: since $\Lan_{\yon_A} F\circ\yon_A\cong F$, it is 
 \begin{enumerate}[label=$\roman*$)]
 	\item It is an easy computation in coend calculus: let us assume condition 3 in the sense that $Fa\cong \colim_{i\in I}  \hom(x_i,a)$ for a $\clD$-shaped diagram of objects $I\to A$, and let's assume that $P\cong \lim_{j\in J}P_j$ for a diagram of presheaves $P_* : J\to [A,\Set]$, for $J\in \clD^{\cmts}$; we can build a canonical isomorphism $\Lan_{\yon_A} F(P)\cong \lim_{i\in J}\Lan_{\yon_A} F(P_j)$ as follows:
 	\marginpar{
-	\begin{kodi}
-	\obj{A & \Set \\ |(psh)| [A^\opp,\Set] & \\}; 
-	\mor A F:-> Set;
-	\mor[swap] A {\yon_A}:-> psh {\Lan_{\yon}F}:-> Set;
-	% \mor yon 2-> Set;
-	\end{kodi}}
+	% \begin{kodi}
+	% \obj{A & \Set \\ |(psh)| [A^\opp,\Set] & \\}; 
+	% \mor A F:-> Set;
+	% \mor[swap] A {\yon_A}:-> psh {\Lan_{\yon}F}:-> Set;
+	% % \mor yon 2-> Set;
+	% \end{kodi}
+	}
 	\begin{align*}
 		\Lan_{\yon_A} F(P) & \cong \int^a Pa\times Fa \\
 		&\cong \int^a \colim_{i\in I} Pa\times \hom(x_i,a)\\
